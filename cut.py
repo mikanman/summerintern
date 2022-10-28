@@ -25,10 +25,6 @@ class Make_Dice():
     self.height = y_mize.size
     self.plus = 10
 
-    # print(self.y_max,
-    # self.y_min,
-    # self.x_max,
-    # self.x_min)
 
   def update(self):
     x_range = self.x_max - self.x_min
@@ -67,11 +63,3 @@ class Make_Dice():
       y = self.y_max
       self.x_min -= y
       self.y_min = self.height
-
-
-    # print(self.y_max,
-    # self.y_min,
-    # self.x_max,
-    # self.x_min)
-
-    # デバック用
