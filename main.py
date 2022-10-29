@@ -4,8 +4,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import tensorflow as tf
 
+import time
+
 from cut import Max_Min, Make_Dice
-from image_manage import Image_mane, WordChanger
+from image_manage import Image_mane, WordChanger, AnsClass
 from model import Media, My_model
 
 def main():
@@ -14,6 +16,9 @@ def main():
   media = Media()
   word_ch = WordChanger()
   model = My_model()
+  ans = AnsClass()
+
+  time_base = -2
 
   while True:
 
@@ -46,9 +51,13 @@ def main():
 
     image.drow_line(make)
 
-    model.act(image.img, make)
+    if time.time() - time_base >= 2:
+      time_base = time.time()
+      model.act(image.img, make)
 
-    word_ch.text_out(image.image, model.word, model.prop )
+    word_ch.text_out(image.image, model.word, model.prop, image)
+    ans.text_out(word_ch.img_pil, model.ans_list, image)
+
 
     cv2.imshow("Frame",np.array(word_ch.img_pil))
 

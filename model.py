@@ -33,15 +33,13 @@ class My_model():
 
     def predict(self):
         predictions_single = self.model.predict(self.img_expand)
-        print(predictions_single)
         self.predictions_single = predictions_single[0]
         self.answer = np.argpartition(-self.predictions_single, 5)[:5]
 
 
     def output(self):
-        ans_list = self.label[self.answer]
-        # print(ans_list)
-        self.word = '\n'.join(ans_list)
+        self.ans_list = self.label[self.answer]
+        self.word = ':\n'.join(self.ans_list)+':'
         self.prop =''
 
         x_list = self.predictions_single[self.answer].tolist()
