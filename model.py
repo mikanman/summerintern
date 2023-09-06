@@ -22,7 +22,7 @@ class My_model():
 
     def __init__(self):
         self.label = np.array(['あ', 'い', 'う', 'え', 'お', 'か', 'き', 'く', 'け', 'こ', 'さ', 'し', 'す', 'せ', 'そ', 'た', 'ち', 'つ', 'て', 'と', 'な', 'に', 'ぬ', 'ね', 'の', 'は', 'ひ', 'ふ', 'へ', 'ほ', 'ま', 'み', 'む', 'め', 'も', 'や', 'ゆ', 'よ', 'ら', 'り', 'る', 'れ', 'ろ', 'わ', 'を', 'ん'])
-        self.model = tf.keras.models.load_model('model/my_model.h5')
+        self.model = tf.keras.models.load_model('model/my_model.h5', compile=True)
 
 
     def pre_make(self, img, make):
